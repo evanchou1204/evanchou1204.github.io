@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rates>
+    <rate>
+        <currency>美金</currency>
+        <cashSellingRate>30</cashSellingRate>
+    </rate>
+    <rate>
+        <currency>歐元</currency>
+        <cashSellingRate>32</cashSellingRate>
+    </rate>
+    <rate>
+        <currency>日圓</currency>
+        <cashSellingRate>0.21</cashSellingRate>
+    </rate>
+    <rate>
+        <currency>韓元</currency>
+        <cashSellingRate>0.021</cashSellingRate>
+    </rate>
+    <rate>
+        <currency>澳幣</currency>
+        <cashSellingRate>20</cashSellingRate>
+    </rate>
+</rates><!--第2題-->

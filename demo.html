@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>匯率轉換計算機</title>
+		<link rel="stylesheet" type="text/css" href="mystyle.css">
+	</head>
+	<body>
+		<h1>匯率轉換計算機</h1>
+		
+		<div><p>請輸入台幣金額：</p></div>
+		<input type="number" id="twdAmount" min="0">
+		<button onclick="calculate()">執行計算</button>
+
+		<div id="result"><p>轉換結果：</p></div>
+		<a href="https://rate.bot.com.tw/xrt" target="_blank">如有疑慮請點選-->台灣銀行</a>
+		<br></br>
+		<button onclick="reset()">重新計算</button>
+
+		<script>
+			function calculate() {
+				const xhttp = new XMLHttpRequest();
+				var twd = parseFloat(document.getElementById('twdAmount').value);
+
+				if (isNaN(twd)) {
+					alert("請輸入有效數值");
+					reset();
+					return;
+				}
+				
+				xhttp.onload = function(){
+					myFunction(this);
+				}
+				xhttp.open("GET", "./rate.xml");
+				xhttp.send();
+			}
+			function myFunction(xml){
+				xhttp.onreadystatechange = function () {
+					if (xhttp.readyState === 4) {
+						if (xhttp.status === 200) {
+							var rates = xhttp.responseXML.getElementsByTagName('rate');
+							var result = '';
+
+							for (var i = 0; i < rates.length; i++) {
+								var currency = rates[i].getElementsByTagName('currency')[0].textContent;
+								var rate = parseFloat(rates[i].getElementsByTagName('cashSellingRate')[0].textContent);
+								var converted = (twd / rate).toFixed(2);
+
+								result += converted + ' ' + currency + '<br>';
+							}
+
+							var resultElement = document.getElementById('result');
+							resultElement.innerHTML = result;
+						} else {
+							alert("無法讀取匯率資訊");
+						}
+					}
+				};
+			}
+
+			function reset() {
+				document.getElementById('twdAmount').value = '';
+				document.getElementById('result').innerHTML = '';
+			}
+			
+		</script><!--第1題-->
+	</body>
+</html>

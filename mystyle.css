@@ -1,0 +1,30 @@
+div {
+	background-color: #CCFFE5;
+	color:#2828FF;
+	padding: 16px;
+	text-align: center;
+}
+div:hovor{
+	background-color: rgba(204,255,229,0.5)
+}
+a:link{
+	color:#99FFFF;
+	text-align: center;
+}
+a:visit{
+	color:#B266FF;
+}
+a:hover{
+	color:#00FFFF;
+}
+input[type=number] {
+	width: 300px;
+	display: block;
+	margin-bottom: 40px;
+	background-color: #DFFFDF;
+	color: gray;
+}
+body{
+	background: -webkit-linear-gradient(-8deg,rgb(229,204,255),rgb(204,204,255))
+	
+}
